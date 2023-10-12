@@ -1,7 +1,7 @@
 // =================================================================
 //
 // File: exercise03.cpp
-// Author(s): Sofía Blanco Prigmore and Antonio Miranda Baños 
+// Author(s): Sofía Blanco Prigmore 
 // Description: This file contains the code that implements the
 //				enumeration sort algorithm. The time this 
 //				implementation takes ill be used as the basis to 
@@ -40,35 +40,18 @@ void* enumerationSort(void *param){
 	int cont = 0; 
 
 	for (int i = block->start; i < block->end; i++){
-		/*for (int j = block->start; j < block->end; j++) {
-            if (block->copy[i] > block->copy[j] || (block->copy[i] == block->copy[j] && j < i)) {
-                cont++;
-            }
-        }
-		block->copy[cont] = block->copy[i]; */
-		int *b = new int[SIZE]; 
-		for (int i=0; i<SIZE; i++){
-			b[i] = 0; 
-		}
-		
 
-		for (int i=0; i<SIZE; i++){
-			int cont = 0; 
-			for (int j=0; j<SIZE; j++){
-				//establish conditions for duplicated elements
-				if(block->copy[i] > block->copy[j] || (block->copy[i]==block->copy[j] && j<i)){
-					cont++; 
-				}
+		int cont = 0; 
+		for (int j=0; j<SIZE; j++){
+			//establish conditions for duplicated elements
+			if(block->origin[i] > block->origin[j] || (block->origin[i]==block->origin[j] && j<i)){
+				cont++; 
 			}
-			b[cont] = block->copy[i]; //copies element in correct pos
 		}
-		for (int i = 0; i <SIZE; i++){
-			block->copy[i] = b[i]; //copies sorted array into original array
-		}
-		delete[] b; // b no longer necessary
+		block->copy[cont] = block->origin[i]; //copies element in correct pos
 	
 	}
-		return 0; 	
+	return 0; 	
 }
 
 
@@ -118,13 +101,9 @@ int main(int argc, char* argv[]) {
 
 		} 
 
-		// use the "copy" array to do the sorting.
-		for(int i=0; i < SIZE; i++){
-			origin[i] = copy[i]; 
-		}
-
 		end = high_resolution_clock::now();
 		timeElapsed += duration<double, std::milli>(end - start).count();
+
 	}
 	display_array("after", copy);
 	cout << "avg time = " << fixed << setprecision(3) 
