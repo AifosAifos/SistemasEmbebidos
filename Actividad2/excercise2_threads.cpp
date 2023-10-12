@@ -1,7 +1,7 @@
 // =================================================================
 //
 // File: exercise02.cpp
-// Author(s): Sofía Blanco Prigmore and Antonio Miranda Baños 
+// Author(s): Sofía Blanco Prigmore 
 // Description: This file contains the code to brute-force all
 //				prime numbers less than MAXIMUM. The time this
 //				implementation takes will be used as the basis to
