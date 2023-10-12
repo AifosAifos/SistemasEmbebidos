@@ -28,9 +28,13 @@ using namespace std::chrono;
 
 #define SIZE 10000
 
-//avg time monohilo = 545.129ms 
-//avg time pthreads = 138.873 ms
-//avg time openmp = 82.831ms [80-85ms]
+/*
+avg time monohilo = 545.129ms 
+avg time pthreads = 138.873 ms
+avg time openmp = 82.831ms [80-85ms]
+
+SPEED UP: 6.58
+*/
 
 // implement your code
 void parallel_EnumerationSort(int *array, int size){
